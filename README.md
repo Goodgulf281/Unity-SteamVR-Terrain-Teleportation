@@ -2,7 +2,7 @@
 Dynamically place SteamVR TeleportationPoints on Unity terrain.
 
 ## YouTube
-This video shows the end result when using this code.
+This video shows the end result when using this code: https://youtu.be/b6n6LhHSIFw
 
 # Prerequisites
 - Unity 2019
