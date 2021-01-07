@@ -44,3 +44,9 @@ In the method private void TeleportPlayer() add:
 
 ## Terrain shader
 If you have a terrain shader active on your terrain you may want to increase the value of the **yOffsetTeleportPoints** property to prevent the TeleportPoints sinking into the ground.  
+
+## Added to latest version
+The major feature added to the latest version is support for (indoor) dungeons. It uses a square pattern for the teleport points instead of the concentric rings.
+Next to this it also includes:
+ - Line of sight placement of teleport points (so they will not hide behind obstacles)
+ - Proximity check for teleport points so the script does not place teleport points near by manually places teleport points
