@@ -36,10 +36,11 @@ In the method private void TeleportPlayer() add:
 (Add this just before the code: Teleport.Player.Send( pointedAtTeleportMarker ); )
 
 # How does it work?
-- Tag your terrain with the "Terrain" label (which you may need to create first).
-- Make the changes to the SteamVR code.
-- Add this script to the Teleporter object in your scene hierarchy.
-- In the Teleporter object link the event to the Teleported() event in this script.
+ - Tag your terrain with the "Terrain" label or your dungeon with the "Floor" label (which you may need to create first).
+ - Make the changes to the SteamVR code.
+ - Add this script to the Teleporter object (SteamVR>InteractionSystem>Teleport>Prefabs>Teleporting) in your scene hierarchy.
+ - In the Teleporter object link the OnTeleportSucceeded event to the Teleported() event in this script.
+ - Place one TeleportPoint in the terrain or dungeon close to the Player. Jumping to this point will first trigger the script.
 
 ## Terrain shader
 If you have a terrain shader active on your terrain you may want to increase the value of the **yOffsetTeleportPoints** property to prevent the TeleportPoints sinking into the ground.  
