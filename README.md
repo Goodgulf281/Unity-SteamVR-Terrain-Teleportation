@@ -1,5 +1,5 @@
 # Unity-SteamVR-Terrain-Teleportation
-Dynamically place SteamVR TeleportationPoints on Unity terrain.
+Dynamically place SteamVR TeleportationPoints on Unity terrain or in Dungeons.
 
 ## YouTube
 This video shows the end result when using this code: https://youtu.be/b6n6LhHSIFw
@@ -37,7 +37,7 @@ In the method private void TeleportPlayer() add:
 
 # How does it work?
  - Tag your terrain with the "Terrain" label or your dungeon with the "Floor" label (which you may need to create first).
- - Make the changes to the SteamVR code.
+ - Make the changes to the SteamVR code as mentioned above.
  - Add this script to the Teleporter object (SteamVR>InteractionSystem>Teleport>Prefabs>Teleporting) in your scene hierarchy.
  - In the Teleporter object link the OnTeleportSucceeded event to the Teleported() event in this script.
  - Place one TeleportPoint in the terrain or dungeon close to the Player. Jumping to this point will first trigger the script.
