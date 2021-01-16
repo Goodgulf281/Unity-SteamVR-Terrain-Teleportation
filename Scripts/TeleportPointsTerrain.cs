@@ -83,8 +83,15 @@ public class TeleportPointsTerrain : MonoBehaviour
     private Player player;                          // reference to the player so we can get its position after every teleport jump
     private TeleportMarkerBase[] teleportMarkers;   // collect all fixed TeleportPoints for proximity check.
 
+    private Teleport teleport;                      // reference to the teleport object in the scene hierarchy
+
     void Awake()
     {
+        if (teleportPrefab == null)
+        {
+            Debug.LogError("<b>TeleportPointsTerrain.Awake():</b> No teleportPrefab has been set.");
+        }
+
         raycastPositions    = new List<Vector3>();
         teleportPoints      = new List<TeleportPoint>();
 
@@ -179,6 +186,15 @@ public class TeleportPointsTerrain : MonoBehaviour
         {
             Debug.LogError("<b>TeleportPointsTerrain.Start():</b> No Player instance found in map.");
         }
+
+        teleport = Teleport.instance;
+        if (teleport == null)
+        {
+            Debug.LogError("<b>TeleportPointsTerrain.Start():</b> No Teleport instance found in the hierarchy.");
+        }
+
+        // Instead of changing the SteamVR code we can just add a listener using the Teleport.Player SteamVR Event.
+        Teleport.Player.AddListener(Teleported);
     }
 
 
@@ -188,7 +204,7 @@ public class TeleportPointsTerrain : MonoBehaviour
 
     }
 
-    public void Teleported()
+    public void Teleported(TeleportMarkerBase teleportMarkerBase)
     {
         // This method needs to be called whenever a teleport was completed. For this some changes need to be made to the Steam VR code :-(
         // The changes are described in the Readme file of the Github repo.
